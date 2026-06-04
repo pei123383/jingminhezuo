@@ -35,11 +35,14 @@
             </view>
           </swiper-item>
         </swiper>
-        <view class="banner-arrow banner-arrow-left" @tap.stop="slideBanner(-1)">
-          <view class="banner-arrow-icon"></view>
-        </view>
-        <view class="banner-arrow banner-arrow-right" @tap.stop="slideBanner(1)">
-          <view class="banner-arrow-icon"></view>
+        <view class="banner-actions">
+          <view class="banner-arrow banner-arrow-left" @tap.stop="slideBanner(-1)">
+            <view class="banner-arrow-icon"></view>
+          </view>
+          <view class="banner-action-line"></view>
+          <view class="banner-arrow banner-arrow-right" @tap.stop="slideBanner(1)">
+            <view class="banner-arrow-icon"></view>
+          </view>
         </view>
       </view>
 
@@ -197,6 +200,7 @@ page {
 .banner-wrap {
   position: relative;
   margin-top: 22rpx;
+  padding-bottom: 34rpx;
 }
 
 .banner-swiper {
@@ -299,46 +303,60 @@ page {
   top: 162rpx;
 }
 
-.banner-arrow {
+.banner-actions {
   position: absolute;
-  top: 50%;
+  right: 28rpx;
+  bottom: 0;
   z-index: 3;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 60rpx;
-  height: 60rpx;
-  margin-top: -30rpx;
-  border: 2rpx solid rgba(255, 255, 255, 0.86);
+  gap: 8rpx;
+  box-sizing: border-box;
+  height: 62rpx;
+  padding: 8rpx 10rpx;
+  border: 1rpx solid rgba(255, 255, 255, 0.76);
+  border-radius: 999rpx;
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 16rpx 36rpx rgba(18, 61, 128, 0.18);
+}
+
+.banner-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 46rpx;
+  height: 46rpx;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.76);
-  box-shadow: 0 12rpx 28rpx rgba(20, 61, 120, 0.2), inset 0 1rpx 0 rgba(255, 255, 255, 0.92);
+  background: transparent;
 }
 
-.banner-arrow-left {
-  left: 24rpx;
+.banner-arrow:active {
+  background: rgba(29, 99, 240, 0.1);
 }
 
-.banner-arrow-right {
-  right: 24rpx;
+.banner-action-line {
+  width: 1rpx;
+  height: 28rpx;
+  background: rgba(82, 96, 112, 0.18);
 }
 
 .banner-arrow-icon {
-  width: 18rpx;
-  height: 18rpx;
-  border-top: 6rpx solid #28517e;
-  border-right: 6rpx solid #28517e;
-  border-radius: 2rpx;
+  width: 14rpx;
+  height: 14rpx;
+  border-top: 5rpx solid #2663b8;
+  border-right: 5rpx solid #2663b8;
+  border-radius: 1rpx;
   box-sizing: border-box;
 }
 
 .banner-arrow-left .banner-arrow-icon {
-  margin-left: 6rpx;
+  margin-left: 4rpx;
   transform: rotate(-135deg);
 }
 
 .banner-arrow-right .banner-arrow-icon {
-  margin-right: 6rpx;
+  margin-right: 4rpx;
   transform: rotate(45deg);
 }
 
@@ -346,7 +364,7 @@ page {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 26rpx;
-  margin-top: 50rpx;
+  margin-top: 22rpx;
 }
 
 .entry-card {
